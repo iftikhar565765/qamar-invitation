@@ -11,8 +11,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "mumtaz-invitations",
-      "database_id": "dfeca9e2-e920-466a-8d5d-49be01a1a121"
+      "database_name": "qamar-invitations",
+      "database_id": "6a554261-9f15-48c3-89f1-8bb86d972853"
     }
   ]
 }
