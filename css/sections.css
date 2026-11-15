@@ -1,0 +1,1193 @@
+/* ═══════════════════════════════════════════════════════════════
+   QAMAR · sections.css — the midnight court walk
+   ---------------------------------------------------------------
+   One voice: midnight navy night, moonlit ivory panels, antique
+   gold hairlines, Amiri for the Quranic voice, Great Vibes for
+   the names. Decorations are soft transparent art PNGs; the only
+   inline SVG is fine line-work (captions, icons, stars).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══ THE HERO — the moonlit sky ════════════════════════════════ */
+
+.scene {
+  position: relative;
+  padding: var(--scene-pad-y) var(--scene-pad-x);
+}
+
+.scene--hero {
+  padding-top: clamp(2.6rem, 6vh, 4rem);
+  padding-bottom: clamp(2.4rem, 5vh, 3.6rem);
+  overflow: hidden;
+  background: var(--night-deep);
+}
+
+.qamar-sky {
+  position: relative;
+  width: min(100%, 1080px);
+  margin-inline: auto;
+  display: grid;
+  justify-items: center;
+  background:
+    radial-gradient(120% 62% at 50% -6%, color-mix(in srgb, #C98F6B 6%, transparent) 0%, transparent 52%),
+    radial-gradient(90% 50% at 50% 30%, color-mix(in srgb, #2A3550 55%, transparent) 0%, transparent 68%),
+    linear-gradient(180deg, #0A0F1B 0%, var(--night-deep) 46%, var(--night) 100%);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 22%, transparent),
+    inset 0 0 90px rgba(0, 0, 0, .42);
+  padding: clamp(2rem, 5vh, 3.4rem) var(--scene-pad-x) 0;
+  overflow: hidden;
+}
+
+/* the star field */
+.qamar-sky__stars { position: absolute; inset: 0; pointer-events: none; }
+.qamar-sky__stars i {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 999px;
+  background: radial-gradient(closest-side, #F4ECD8, rgba(244, 236, 216, .25) 70%, transparent);
+  opacity: var(--o);
+  animation: star-breathe var(--t) ease-in-out var(--d) infinite alternate;
+}
+@keyframes star-breathe {
+  from { transform: scale(.7); opacity: calc(var(--o) * .45); }
+  to   { transform: scale(1); opacity: var(--o); }
+}
+
+/* the glowing crescent rising above the card */
+.qamar-sky__crescent {
+  position: relative;
+  z-index: 2;
+  width: clamp(6rem, 12vw, 9rem);
+  margin-bottom: clamp(-2.2rem, -3vh, -1.2rem);
+  filter: drop-shadow(0 6px 26px color-mix(in srgb, #C98F6B 42%, transparent));
+  pointer-events: none;
+  user-select: none;
+  animation: moon-bob 9s ease-in-out infinite alternate;
+}
+@keyframes moon-bob {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-9px); }
+}
+
+/* the mosque dome rising at the foot of the sky */
+.qamar-sky__dome {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(72%, 560px);
+  z-index: 0;
+  opacity: .94;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 -6px 30px color-mix(in srgb, #C98F6B 12%, transparent));
+}
+
+/* hanging lanterns at the shoulders */
+.qamar-sky__lantern {
+  position: absolute;
+  top: -1.4rem;
+  width: clamp(4.2rem, 8.5vw, 6.6rem);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .5));
+  transform-origin: 50% 0;
+  animation: lantern-sway 7s ease-in-out infinite alternate;
+}
+.qamar-sky__lantern--l { left: clamp(-.6rem, 1vw, 4rem); }
+.qamar-sky__lantern--r { right: clamp(-.6rem, 1vw, 4rem); animation-delay: -2.6s; }
+@keyframes lantern-sway {
+  from { rotate: -2.4deg; }
+  to   { rotate: 2.4deg; }
+}
+
+/* ── the moon card — the invitation under the crescent ── */
+
+.moon-card {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 520px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2.6rem, 7vw, 3.8rem) clamp(1.6rem, 6vw, 3rem) clamp(2rem, 5vw, 2.8rem);
+  background:
+    radial-gradient(120% 54% at 50% 0%, color-mix(in srgb, var(--champagne) 9%, transparent) 0%, transparent 56%),
+    var(--paper-raised);
+  border-radius: 240px 240px 6px 6px;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 44%, transparent),
+    inset 0 0 0 7px var(--paper-raised),
+    inset 0 0 0 8px color-mix(in srgb, var(--champagne) 26%, transparent),
+    0 30px 70px -24px rgba(0, 0, 0, .62);
+  margin-bottom: -3.2rem;
+}
+
+.moon-card__bismillah {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.15rem, 3.4vw, 1.45rem);
+  line-height: 1.7;
+  color: var(--burgundy);
+  margin-bottom: clamp(1rem, 4%, 1.5rem);
+}
+
+.moon-card__blessing {
+  color: var(--champagne-soft);
+  letter-spacing: .24em;
+  font-size: clamp(.52rem, 1.5vw, .64rem);
+  line-height: 2;
+  max-width: 100%;
+}
+
+.moon-card__invite {
+  margin-top: clamp(.5rem, 2.4%, .9rem);
+  font-family: var(--font-ui);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: clamp(.54rem, 1.6vw, .66rem);
+  line-height: 2;
+  color: var(--ink-soft);
+  max-width: 100%;
+}
+
+.moon-card__names {
+  margin-top: clamp(1rem, 4.5%, 1.7rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .05rem;
+  outline: none;
+}
+
+.moon-card__name {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.7rem, 8.5vw, 4.2rem);
+  line-height: 1.05;
+  background: linear-gradient(168deg,
+    color-mix(in srgb, var(--crimson) 42%, var(--rose-glow, #C98F6B) 30%) 10%,
+    color-mix(in srgb, var(--burgundy) 74%, var(--champagne) 26%) 46%,
+    color-mix(in srgb, var(--champagne) 34%, var(--burgundy-deep) 66%) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 10px color-mix(in srgb, var(--champagne) 26%, transparent));
+}
+
+.moon-card__and {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--champagne-soft);
+  letter-spacing: .08em;
+}
+
+.moon-card__rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(.9rem, 4%, 1.4rem);
+}
+.moon-card__rule i {
+  display: block;
+  width: clamp(26px, 9%, 58px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--paper-line));
+}
+.moon-card__rule i:last-child { transform: scaleX(-1); }
+.moon-card__rule img { width: clamp(4rem, 15%, 5.5rem); height: auto; opacity: .95; }
+.moon-card__rule--end { margin-top: clamp(1rem, 4.5%, 1.6rem); }
+
+.moon-card__date { margin-top: clamp(.8rem, 3.5%, 1.2rem); }
+.moon-card__date-week {
+  color: var(--champagne-soft);
+  letter-spacing: .3em;
+  font-size: clamp(.56rem, 1.6vw, .68rem);
+}
+.moon-card__date-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .9rem;
+  margin-top: .3rem;
+}
+.moon-card__date-side {
+  color: var(--ink-soft);
+  font-size: clamp(.6rem, 1.8vw, .72rem);
+}
+.moon-card__date-num {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6.4vw, 3rem);
+  line-height: 1;
+  color: var(--burgundy);
+  letter-spacing: .04em;
+}
+
+.moon-card__nikah {
+  margin-top: clamp(.9rem, 4%, 1.4rem);
+  color: var(--ink-soft);
+  letter-spacing: .18em;
+  font-size: clamp(.54rem, 1.7vw, .66rem);
+  line-height: 1.9;
+  max-width: 100%;
+}
+.moon-card__nikah-sep { color: var(--gold-line); }
+
+.moon-card__venue {
+  margin-top: clamp(.9rem, 4%, 1.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: .26rem;
+}
+.moon-card__venue-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--champagne-soft);
+  font-size: clamp(.52rem, 1.5vw, .62rem);
+}
+.moon-card__venue-label i {
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: var(--gold-line);
+}
+.moon-card__venue-name {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  letter-spacing: .06em;
+  color: var(--ink);
+}
+.moon-card__venue-address {
+  font-family: var(--font-body);
+  font-size: clamp(.62rem, 1.8vw, .74rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 28ch;
+}
+
+.moon-card__closing {
+  margin-top: clamp(.9rem, 4%, 1.4rem);
+  font-size: clamp(1.2rem, 3.6vw, 1.5rem);
+  color: var(--champagne-soft);
+}
+
+/* the signboard line + scroll cue beneath the sky */
+.hero-signboard {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(3.4rem, 8vh, 5rem);
+  display: grid;
+  justify-items: center;
+  gap: 1.2rem;
+}
+.hero-signboard__line { color: var(--gilding-soft); }
+
+.hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--night-ink);
+}
+.hero-scroll__arrow {
+  width: 15px;
+  height: 15px;
+  animation: scroll-pulse 2.4s var(--ease) infinite;
+}
+@keyframes scroll-pulse {
+  0%, 100% { transform: translateY(0); opacity: .7; }
+  50% { transform: translateY(5px); opacity: 1; }
+}
+
+/* ═══ THE CHRONICLE — story ═════════════════════════════════════ */
+
+.scene--story {
+  background:
+    radial-gradient(90% 50% at 50% 0%, color-mix(in srgb, #2A3550 34%, transparent) 0%, transparent 60%),
+    var(--night-deep);
+  overflow: hidden;
+}
+
+.story-star {
+  position: absolute;
+  width: clamp(7rem, 15vw, 12rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 999px;
+  opacity: .16;
+  pointer-events: none;
+  user-select: none;
+}
+.story-star--tl { top: -3rem; left: -3rem; }
+.story-star--br { bottom: -3rem; right: -3rem; transform: rotate(180deg); }
+
+.scene-body {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 880px);
+  margin-inline: auto;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+.scene-body--narrow { width: min(100%, 720px); }
+
+.scene-body > * + * { margin-top: clamp(1.1rem, 3vh, 1.7rem); }
+.scene-body > .display + .prose { margin-top: clamp(1.4rem, 3.4vh, 2rem); }
+
+.kicker { text-align: center; }
+.kicker--light { color: var(--gilding-soft); }
+.kicker--ink { color: var(--burgundy); }
+
+.prose { max-width: 62ch; }
+.prose--dropcap { text-align: left; }
+.prose--dropcap::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.1em;
+  line-height: .8;
+  float: left;
+  padding: .06em .14em 0 0;
+  color: var(--burgundy);
+}
+
+.story-quote {
+  display: grid;
+  justify-items: center;
+  gap: .9rem;
+  max-width: 46ch;
+  padding-top: clamp(.6rem, 2vh, 1.2rem);
+}
+.story-quote__rule { width: min(220px, 60%); height: 16px; }
+.story-quote__text {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  line-height: 1.5;
+  color: var(--burgundy);
+}
+.story-quote__label { color: var(--ink-soft); letter-spacing: .2em; line-height: 1.8; }
+
+.story-note { margin-top: clamp(1.4rem, 3.6vh, 2rem); }
+.story-note-credit { display: block; font-size: .92em; opacity: .75; margin-top: .3rem; }
+
+.story-captions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.2rem, 4vw, 2.6rem);
+  margin-top: clamp(1.6rem, 4vh, 2.4rem);
+}
+.story-caption {
+  display: grid;
+  justify-items: center;
+  gap: .5rem;
+  max-width: 15ch;
+}
+.story-caption svg { width: 54px; height: 38px; }
+.story-caption span {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .82rem;
+  color: var(--ink-soft);
+}
+
+/* ═══ THE BLESSED VERSE — 30:21 ═════════════════════════════════ */
+
+.scene--ayat {
+  background:
+    radial-gradient(110% 90% at 50% 0%, color-mix(in srgb, var(--emerald-soft, #1B7A5F) 26%, transparent) 0%, transparent 58%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-deep) 100%);
+  overflow: hidden;
+}
+
+.ayat-crescent {
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(60%, 420px);
+  opacity: .08;
+  pointer-events: none;
+  user-select: none;
+}
+
+.scene--ayat .scene-body { margin-top: clamp(1rem, 3vh, 2rem); }
+
+.ayat-plate {
+  position: relative;
+  width: min(100%, 640px);
+  padding: clamp(2.4rem, 7vw, 4.2rem) clamp(1.6rem, 6vw, 3.6rem);
+  background:
+    radial-gradient(90% 70% at 50% 110%, color-mix(in srgb, var(--champagne) 10%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, color-mix(in srgb, var(--night-deep) 72%, black) 0%, var(--night-deep) 100%);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 34%, transparent),
+    inset 0 0 0 7px transparent,
+    inset 0 0 60px rgba(0, 0, 0, .38),
+    var(--shadow-lift);
+}
+
+.ayat-plate__corner {
+  position: absolute;
+  width: clamp(3.4rem, 8vw, 5rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 999px;
+  transform: scale(1.1);
+  opacity: .92;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--champagne) 40%, transparent);
+}
+.ayat-plate__corner--tl { top: -.9rem; left: -.9rem; }
+.ayat-plate__corner--tr { top: -.9rem; right: -.9rem; transform: scaleX(-1); }
+.ayat-plate__corner--bl { bottom: -.9rem; left: -.9rem; transform: scaleY(-1); }
+.ayat-plate__corner--br { bottom: -.9rem; right: -.9rem; transform: scale(-1, -1); }
+
+.ayat-arabic {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.35rem, 3.6vw, 1.9rem);
+  line-height: 2.05;
+  color: var(--gilding);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .4);
+}
+
+.ayat-translation {
+  margin-top: clamp(1.2rem, 3vh, 1.8rem);
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(.95rem, 2.4vw, 1.12rem);
+  line-height: 1.85;
+  color: var(--night-ink);
+  max-width: 52ch;
+  margin-inline: auto;
+}
+
+.ayat-reference {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: clamp(1.2rem, 3vh, 1.7rem);
+  color: var(--gilding-soft);
+  font-size: clamp(.56rem, 1.6vw, .68rem);
+}
+.ayat-reference i {
+  display: block;
+  width: 38px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+}
+
+/* ═══ SAVE THE DATE ═════════════════════════════════════════════ */
+
+.scene--std {
+  position: relative;
+  background:
+    radial-gradient(90% 60% at 50% 0%, color-mix(in srgb, #2A3550 30%, transparent) 0%, transparent 60%),
+    var(--night-deep);
+  overflow: hidden;
+}
+
+.std-band {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(90% 60% at 50% 0%, color-mix(in srgb, var(--champagne) 8%, transparent) 0%, transparent 60%),
+    radial-gradient(120% 80% at 50% 110%, color-mix(in srgb, #C98F6B 8%, transparent) 0%, transparent 58%);
+  pointer-events: none;
+}
+
+.scene-body--std { position: relative; z-index: 1; }
+
+.std-emblem {
+  width: clamp(5.2rem, 12vw, 7rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 999px;
+  box-shadow:
+    inset 0 0 0 3px var(--paper-raised),
+    inset 0 0 0 5px color-mix(in srgb, var(--champagne) 55%, transparent),
+    0 12px 30px color-mix(in srgb, #C98F6B 24%, transparent);
+}
+
+.std-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.4vw, 3.1rem);
+  color: var(--parchment);
+  letter-spacing: .06em;
+}
+
+.std-crossing {
+  font-size: clamp(1.3rem, 3.4vw, 1.7rem);
+  color: var(--burgundy);
+}
+
+.std-numerals {
+  font-family: var(--font-display);
+  font-size: var(--fs-numerals);
+  letter-spacing: .14em;
+  color: var(--champagne-soft);
+}
+
+.std-display {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(.95rem, 2.3vw, 1.1rem);
+  color: var(--night-ink);
+}
+
+.std-note { font-family: var(--font-body); font-size: .9rem; color: var(--night-faint); }
+
+.std-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: clamp(.6rem, 2vh, 1.2rem);
+}
+
+.std-seal {
+  position: relative;
+  width: clamp(4.6rem, 12vw, 5.6rem);
+  aspect-ratio: 1;
+  margin-top: clamp(1.6rem, 4vh, 2.4rem);
+  display: grid;
+  place-items: center;
+}
+.std-seal .seal__art,
+.closing-seal .seal__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 18px color-mix(in srgb, var(--night-deep) 36%, transparent));
+}
+.std-seal .seal__initials,
+.closing-seal .seal__initials {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(.68rem, 2vw, .82rem);
+  letter-spacing: .12em;
+  color: #4A380C;
+  text-shadow: 0 0 5px rgba(253, 251, 243, .9);
+}
+
+/* ═══ THE CELEBRATIONS — event timeline ═════════════════════════ */
+
+.scene--details {
+  background:
+    radial-gradient(80% 40% at 50% 0%, color-mix(in srgb, #2A3550 26%, transparent) 0%, transparent 58%),
+    var(--night);
+}
+
+.details-intro { margin-top: clamp(.9rem, 2.4vh, 1.4rem); }
+
+.events {
+  position: relative;
+  width: min(100%, 760px);
+  margin: clamp(2.2rem, 6vh, 3.4rem) auto 0;
+  display: grid;
+  gap: clamp(1.2rem, 3vh, 1.8rem);
+  list-style: none;
+  padding: 0;
+}
+
+/* the connecting thread */
+.events::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  bottom: -1rem;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg,
+    transparent, color-mix(in srgb, var(--champagne) 40%, transparent) 12%,
+    color-mix(in srgb, var(--champagne) 40%, transparent) 88%, transparent);
+}
+
+.event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr minmax(3.4rem, auto) 1fr;
+  align-items: center;
+  gap: clamp(.8rem, 2.4vw, 1.6rem);
+}
+
+.event__node {
+  grid-column: 2;
+  display: grid;
+  place-items: center;
+  width: clamp(3rem, 8vw, 3.8rem);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: var(--paper-raised);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 52%, transparent),
+    0 8px 20px rgba(0, 0, 0, .4);
+}
+.event__node--prime {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 70%, transparent),
+    inset 0 0 0 5px color-mix(in srgb, var(--champagne) 14%, transparent),
+    0 8px 20px color-mix(in srgb, var(--night-deep) 22%, transparent);
+}
+.event__star { width: 62%; height: auto; }
+
+.event__card {
+  padding: clamp(1.1rem, 3.4vw, 1.6rem) clamp(1.1rem, 3.4vw, 1.7rem);
+  background: var(--paper-raised);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 26%, transparent),
+    0 10px 26px -12px color-mix(in srgb, var(--night-deep) 30%, transparent);
+  text-align: center;
+}
+.event:nth-child(odd) .event__card { grid-column: 1; grid-row: 1; }
+.event:nth-child(even) .event__card { grid-column: 3; grid-row: 1; }
+
+.event__card--prime {
+  background:
+    radial-gradient(120% 100% at 50% 0%, color-mix(in srgb, var(--champagne) 12%, transparent) 0%, transparent 55%),
+    var(--paper-raised);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 58%, transparent),
+    0 16px 36px -14px color-mix(in srgb, var(--night-deep) 40%, transparent);
+}
+
+.event__index {
+  display: block;
+  font-family: var(--font-arabic);
+  font-size: 1.05rem;
+  color: var(--champagne-soft);
+  margin-bottom: .35rem;
+}
+
+.event__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 3.2vw, 1.5rem);
+  letter-spacing: .05em;
+  color: var(--burgundy);
+}
+
+.event__when {
+  margin-top: .45rem;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: clamp(.56rem, 1.7vw, .68rem);
+  color: var(--champagne-soft);
+}
+
+.event__note {
+  margin-top: .55rem;
+  font-family: var(--font-body);
+  font-size: clamp(.84rem, 2vw, .94rem);
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+/* the particulars plate */
+.particulars {
+  width: min(100%, 760px);
+  margin: clamp(2.6rem, 7vh, 4rem) auto 0;
+  padding: clamp(1.6rem, 5vw, 2.6rem);
+  background:
+    radial-gradient(100% 80% at 50% 0%, color-mix(in srgb, var(--champagne) 8%, transparent) 0%, transparent 55%),
+    var(--paper-wash);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 34%, transparent),
+    inset 0 0 0 6px var(--paper-raised),
+    inset 0 0 0 7px color-mix(in srgb, var(--champagne) 22%, transparent),
+    var(--shadow-soft);
+  text-align: center;
+}
+
+.particulars-eyebrow { color: var(--champagne-soft); }
+
+.particulars-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(1.2rem, 4vw, 2.2rem);
+  margin-top: clamp(1.4rem, 4vh, 2rem);
+}
+
+.particular { display: grid; gap: .4rem; justify-items: center; }
+.particular-label { color: var(--champagne-soft); }
+.particular-value {
+  font-family: var(--font-display);
+  font-size: clamp(.98rem, 2.6vw, 1.15rem);
+  color: var(--ink);
+  line-height: 1.5;
+}
+.particular-note {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .84rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 30ch;
+}
+
+/* ═══ THE COLOURS OF THE DAY ════════════════════════════════════ */
+
+.scene--palette {
+  background:
+    radial-gradient(80% 40% at 50% 0%, color-mix(in srgb, #2A3550 26%, transparent) 0%, transparent 58%),
+    var(--night);
+}
+
+.palette-intro { margin-top: clamp(.9rem, 2.4vh, 1.4rem); }
+
+.palette-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.4rem, 4.5vw, 2.6rem);
+  margin-top: clamp(1.8rem, 5vh, 2.6rem);
+  list-style: none;
+  padding: 0;
+}
+.palette-swatches li { display: grid; justify-items: center; gap: .7rem; }
+.swatch {
+  width: clamp(3.6rem, 8.5vw, 4.6rem);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, .14),
+    inset 0 0 0 3px var(--paper-raised),
+    inset 0 0 0 4px color-mix(in srgb, var(--champagne) 46%, transparent),
+    0 10px 22px -8px rgba(0, 0, 0, .55);
+}
+.swatch-name {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .58rem;
+  color: var(--ink-soft);
+}
+
+.dresscode {
+  display: grid;
+  justify-items: center;
+  gap: .7rem;
+  margin-top: clamp(2.2rem, 6vh, 3.2rem);
+}
+.dresscode-orn { width: min(300px, 70%); height: auto; opacity: .9; }
+.dresscode-label { color: var(--champagne-soft); }
+.dresscode-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3.4vw, 1.6rem);
+  color: var(--ink);
+  letter-spacing: .04em;
+}
+.dresscode-note {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .92rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+/* ═══ THE STRING OF MOMENTS ═════════════════════════════════════ */
+
+.scene--itinerary {
+  background: var(--night-deep);
+  color: var(--night-ink);
+}
+
+.day-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.2rem, 4.5vw, 2.6rem);
+  margin-top: clamp(1.8rem, 5vh, 2.8rem);
+  list-style: none;
+  padding: 0;
+}
+.day-word { display: grid; justify-items: center; gap: .55rem; }
+.day-word__bulb { width: 30px; height: 30px; color: var(--champagne); opacity: .9; }
+.day-word__text {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+  color: var(--gilding);
+}
+
+/* ═══ THE VENUE ═════════════════════════════════════════════════ */
+
+.scene--venue {
+  background:
+    radial-gradient(80% 40% at 50% 0%, color-mix(in srgb, #2A3550 26%, transparent) 0%, transparent 58%),
+    var(--night);
+}
+
+.venue-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 5.4vw, 3rem);
+  color: var(--parchment);
+  letter-spacing: .06em;
+}
+
+.venue-stage {
+  position: relative;
+  width: min(100%, 640px);
+  margin-top: clamp(1.8rem, 5vh, 2.6rem);
+  display: grid;
+  justify-items: center;
+}
+
+.venue-arch {
+  position: relative;
+  width: min(100%, 440px);
+  display: grid;
+  place-items: center;
+}
+.venue-arch::before {
+  content: "";
+  display: block;
+  width: min(100%, 460px);
+  aspect-ratio: 100 / 82;
+  background:
+    radial-gradient(50% 40% at 50% 62%, color-mix(in srgb, var(--champagne) 14%, transparent) 0%, transparent 72%),
+    linear-gradient(180deg, color-mix(in srgb, var(--night-deep) 88%, black) 0%, var(--night-deep) 100%);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 30%, transparent),
+    var(--shadow-lift);
+}
+.venue-arch__medallion {
+  position: absolute;
+  width: 52%;
+  aspect-ratio: 100 / 82;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: 220px 220px 4px 4px;
+  box-shadow:
+    inset 0 0 0 3px color-mix(in srgb, var(--champagne) 55%, transparent),
+    0 10px 26px rgba(0, 0, 0, .5);
+}
+
+.venue-lantern {
+  position: absolute;
+  top: -1rem;
+  width: clamp(3.4rem, 7vw, 4.8rem);
+  z-index: 1;
+  filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--night-deep) 36%, transparent));
+  transform-origin: 50% 0;
+  animation: lantern-sway 8s ease-in-out infinite alternate;
+}
+.venue-lantern--l { left: 8%; }
+.venue-lantern--r { right: 8%; animation-delay: -3.4s; }
+
+.venue-description { margin-top: clamp(1.8rem, 4.5vh, 2.4rem); color: var(--night-ink); }
+
+.venue-sublines { display: grid; gap: .7rem; }
+.venue-sublines .sub {
+  font-family: var(--font-body);
+  font-size: .95rem;
+  color: var(--night-ink);
+}
+.venue-sublines .sub .label-caps { color: var(--gilding); margin-right: .4rem; }
+.venue-sublines .sub em { font-style: italic; }
+
+.venue-address {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: var(--font-body);
+  font-size: .9rem;
+  color: var(--night-ink);
+}
+.venue-address .icon {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: var(--champagne-soft);
+  stroke-width: 1.6;
+}
+
+.venue-actions { margin-top: clamp(1rem, 3vh, 1.6rem); }
+
+/* ═══ THE COUNTDOWN ═════════════════════════════════════════════ */
+
+.scene--countdown {
+  background:
+    radial-gradient(100% 70% at 50% 110%, color-mix(in srgb, var(--champagne) 8%, transparent) 0%, transparent 55%),
+    linear-gradient(180deg, var(--night-deep) 0%, var(--night) 100%);
+  overflow: hidden;
+}
+
+.countdown-shamsa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(80%, 560px);
+  opacity: .09;
+  pointer-events: none;
+  user-select: none;
+}
+
+.scene--countdown .scene-body { position: relative; z-index: 1; }
+
+.count-script {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 5vw, 2.9rem);
+  line-height: 1.25;
+  color: var(--parchment);
+  max-width: 24ch;
+}
+.count-script em {
+  font-family: var(--font-script);
+  font-style: normal;
+  font-size: 1.06em;
+  color: var(--gilding);
+}
+
+.count-clock {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2.6rem);
+  margin-top: clamp(1.8rem, 5vh, 2.6rem);
+}
+.count-unit { display: grid; justify-items: center; gap: .4rem; min-width: 3.6rem; }
+.count-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 6vw, 3.1rem);
+  line-height: 1;
+  color: var(--gilding);
+  font-variant-numeric: tabular-nums;
+}
+.count-label { color: var(--night-faint); font-size: .58rem; }
+
+.count-summary {
+  margin-top: clamp(1.4rem, 4vh, 2rem);
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--night-ink);
+}
+.count-message {
+  margin-top: 1rem;
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gilding-soft);
+}
+.count-date {
+  margin-top: clamp(1.4rem, 4vh, 2rem);
+  color: var(--night-faint);
+  letter-spacing: .18em;
+  line-height: 2;
+}
+.count-date__zone { color: var(--gilding-soft); }
+
+/* ═══ KINDLY RESPOND — RSVP ═════════════════════════════════════ */
+
+.scene--rsvp {
+  background:
+    radial-gradient(80% 40% at 50% 0%, color-mix(in srgb, #2A3550 26%, transparent) 0%, transparent 58%),
+    var(--night);
+  overflow: hidden;
+}
+
+.watermark-script {
+  position: absolute;
+  right: -1rem;
+  bottom: 2%;
+  font-family: var(--font-arabic-disp);
+  font-size: clamp(6rem, 20vw, 13rem);
+  line-height: 1;
+  color: color-mix(in srgb, var(--champagne) 10%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.scene--rsvp .scene-body { position: relative; z-index: 1; }
+
+.rsvp-card {
+  width: min(100%, 560px);
+  padding: clamp(2rem, 6vw, 3.2rem) clamp(1.4rem, 5vw, 3rem);
+  background: var(--paper-raised);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne) 30%, transparent),
+    inset 0 0 0 8px var(--paper-raised),
+    inset 0 0 0 9px color-mix(in srgb, var(--champagne) 18%, transparent),
+    var(--shadow-lift);
+  text-align: center;
+}
+
+.rsvp-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: var(--ink);
+  letter-spacing: .04em;
+  margin-top: .9rem;
+}
+
+.rsvp-deadline {
+  margin-top: .7rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+
+.rsvp-ornament { max-width: 340px; margin: 1.4rem auto 0; }
+.rsvp-ornament__img { width: 100%; height: auto; display: block; }
+
+/* ═══ A CLOSING DUA ═════════════════════════════════════════════ */
+
+.scene--closing {
+  overflow: hidden;
+  background:
+    radial-gradient(110% 70% at 50% 0%, color-mix(in srgb, #C98F6B 10%, transparent) 0%, transparent 55%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-deep) 100%);
+}
+
+/* the golden crescent glowing above the last words */
+.closing-plate {
+  position: relative;
+  z-index: 1;
+  width: min(300px, 62%);
+  margin: 0 auto clamp(24px, 4vh, 38px);
+  pointer-events: none;
+}
+.closing-plate::before {
+  content: "";
+  position: absolute;
+  inset: -22% -34%;
+  background: radial-gradient(50% 46% at 50% 52%,
+    color-mix(in srgb, var(--champagne) 22%, transparent) 0%,
+    color-mix(in srgb, var(--champagne) 9%, transparent) 44%,
+    transparent 72%);
+  z-index: -1;
+}
+.closing-plate__art {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 16px 40px color-mix(in srgb, #C98F6B 30%, transparent));
+}
+
+.closing-bloom--r {
+  position: absolute;
+  top: 5%;
+  right: -2%;
+  width: clamp(100px, 14vw, 170px);
+  transform: scaleX(-1);
+  opacity: .8;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .5));
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+.closing-bloom--r.reveal { transform: scaleX(-1) translateY(22px); }
+.closing-bloom--r.reveal.in-view,
+.no-js .closing-bloom--r.reveal { transform: scaleX(-1); }
+
+.scene--closing .scene-body { margin-top: 0; }
+
+.closing-script {
+  font-family: var(--font-hand);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: var(--night-faint);
+}
+
+.closing-names {
+  margin-top: 8px;
+  font-size: clamp(2.8rem, 8vw, 4.6rem);
+  line-height: 1.15;
+  color: var(--gilding);
+  text-shadow: 0 2px 30px color-mix(in srgb, var(--champagne) 30%, transparent);
+}
+
+.closing-date {
+  margin-top: 14px;
+  color: var(--night-faint);
+  font-size: .64rem;
+  line-height: 1.8;
+}
+
+.closing-dua {
+  margin-top: clamp(1.6rem, 4.5vh, 2.4rem);
+  font-family: var(--font-arabic);
+  font-size: clamp(1.3rem, 3.6vw, 1.8rem);
+  line-height: 1.95;
+  color: var(--gilding);
+}
+
+.closing-dua-translation {
+  margin-top: .8rem;
+  color: var(--night-faint);
+  letter-spacing: .18em;
+  line-height: 2;
+  max-width: 60ch;
+}
+
+.closing-message {
+  margin: clamp(1.6rem, 4.5vh, 2.2rem) auto 0;
+  max-width: 50ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.9;
+  color: var(--night-ink);
+}
+
+.closing-seal {
+  position: relative;
+  width: clamp(4.6rem, 13vw, 5.6rem);
+  aspect-ratio: 1;
+  margin: clamp(28px, 5vh, 44px) auto 0;
+  display: grid;
+  place-items: center;
+}
+
+.closing-actions {
+  margin-top: clamp(26px, 5vh, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+.closing-actions .btn { color: var(--sunset-soft); }
+
+/* ═══ THE FOOTER — the garden gate plaque ═══════════════════════ */
+
+.footer {
+  position: relative;
+  padding: clamp(38px, 7vh, 60px) var(--scene-pad-x) clamp(30px, 5vh, 44px);
+  background: var(--night-deep);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+.footer-ornament { width: min(420px, 84%); height: auto; display: block; opacity: .95; }
+.footer .small { color: var(--night-faint); }
+.footer-credit a {
+  color: var(--champagne-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-faint);
+  transition: color .25s ease, border-color .25s ease;
+}
+.footer-credit a:hover { color: var(--gilding); }
+
+/* ═══ shared geometry for the fine line-art ═════════════════════ */
+
+.countdown-shamsa, .ayat-crescent, .story-star { height: auto; }
+.std-emblem, .dresscode-orn, .closing-bloom--r, .closing-plate__art,
+.footer-ornament, .qamar-sky__crescent, .qamar-sky__dome,
+.venue-arch__medallion, .event__star { height: auto; }
+.envelope-lace { height: auto; }

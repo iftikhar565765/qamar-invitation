@@ -1,0 +1,42 @@
+/* ═══════════════════════════════════════════════════════════════
+   QAMAR · responsive.css — the court at every size
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .qamar-sky__lantern--l { left: -0.4rem; }
+  .qamar-sky__lantern--r { right: -0.4rem; }
+}
+
+@media (max-width: 760px) {
+  .closing-plate { width: min(260px, 70%); }
+  .closing-bloom--r { width: clamp(84px, 22vw, 130px); top: 3%; }
+  .events::before { left: 1.7rem; transform: none; }
+
+  /* stack the timeline: card always to the right of the node */
+  .event {
+    grid-template-columns: minmax(3.4rem, auto) 1fr;
+    justify-items: start;
+  }
+  .event__node { grid-column: 1; grid-row: 1; }
+  .event:nth-child(odd) .event__card,
+  .event:nth-child(even) .event__card { grid-column: 2; grid-row: 1; text-align: left; }
+  .event__card { text-align: left; }
+
+  .moon-card { width: min(100%, 460px); border-radius: 200px 200px 6px 6px; }
+}
+
+@media (max-width: 560px) {
+  .opening__florals { width: clamp(8rem, 30vw, 12rem); }
+  .opening__lantern--l { left: .2rem; }
+  .opening__lantern--r { right: .2rem; }
+  .qamar-sky__lantern { width: clamp(3.4rem, 11vw, 5rem); }
+  .qamar-sky__lantern--l { left: .1rem; }
+  .qamar-sky__lantern--r { right: .1rem; }
+  .qamar-sky__dome { width: min(92%, 520px); }
+  .story-star { width: clamp(5rem, 22vw, 8rem); }
+  .count-clock { flex-wrap: wrap; gap: 1.1rem 1.6rem; }
+  .count-unit { min-width: 4.4rem; }
+  .watermark-script { font-size: clamp(5rem, 26vw, 9rem); right: -.6rem; }
+  .std-actions .btn { width: min(280px, 82vw); }
+  .day-words { gap: 1rem 1.6rem; }
+}
