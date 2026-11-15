@@ -26,8 +26,8 @@
   --sage:          #C4B49E;   /* pale bronze                       */
   --rose:          #E8C7A8;   /* rose-gold blush                   */
   --ink:           #1A212E;   /* midnight ink (calligraphy black)  */
-  --ink-soft:      #5A6272;   /* night umber                       */
-  --charcoal:      #9AA0AC;
+  --ink-soft:      #4C5566;   /* deep night ink — legible at caption size */
+  --charcoal:      #7E8595;
 
   /* ── derived golds ────────────────────────────────────────── */
   --gold:          var(--champagne);

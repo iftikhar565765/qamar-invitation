@@ -668,7 +668,7 @@
        with jade and pale-jade greens. Night tones appear in the
        lapis interludes & the opening. The other moods remain
        available through the editor.                               */
-    qamar:    { burgundy: '#1C2740', deep: '#141D30', wine: '#0B1220', crimson: '#E3C8B4', champagne: '#C9A24B', soft: '#9A7B36', parchment: '#F2ECDC', ivory: '#F2EDE0', paper: '#FBF8EE', night: '#141B2B', nightDeep: '#0D1320', olive: '#6B5A48', oliveDeep: '#524436', sage: '#C4B49E', rose: '#E8C7A8', ink: '#1A212E', inkSoft: '#5A6272', charcoal: '#9AA0AC' },
+    qamar:    { burgundy: '#1C2740', deep: '#141D30', wine: '#0B1220', crimson: '#E3C8B4', champagne: '#C9A24B', soft: '#7E6326', parchment: '#F2ECDC', ivory: '#F2EDE0', paper: '#FBF8EE', night: '#141B2B', nightDeep: '#0D1320', olive: '#6B5A48', oliveDeep: '#524436', sage: '#C4B49E', rose: '#E8C7A8', ink: '#1A212E', inkSoft: '#4C5566', charcoal: '#7E8595' },
     falak:    { burgundy: '#232D4A', deep: '#182036', wine: '#0E1424', crimson: '#C7D0E8', champagne: '#C9A24B', soft: '#9A7B36', parchment: '#EAEAF2', ivory: '#ECEDF5', paper: '#F8F9FD', night: '#10182B', nightDeep: '#0A0F1D', olive: '#4A5470', oliveDeep: '#383F56', sage: '#A8B0C8', rose: '#C0CAE0', ink: '#141A26', inkSoft: '#4A5266', charcoal: '#8A92A4' },
     sahara:   { burgundy: '#6B4A1F', deep: '#543A14', wine: '#382408', crimson: '#E0C088', champagne: '#D6A02E', soft: '#A87A1C', parchment: '#F8EFD8', ivory: '#FCF4E0', paper: '#FEFAEE', night: '#2E2008', nightDeep: '#1E1404', olive: '#6E5A2A', oliveDeep: '#524216', sage: '#B8A478', rose: '#EDDCA8', ink: '#2A1E0C', inkSoft: '#6E5A34', charcoal: '#A8986C' },
     gulnar:   { burgundy: '#6E2535', deep: '#551A28', wine: '#380F18', crimson: '#E0A0AC', champagne: '#C9A24B', soft: '#9A7B36', parchment: '#F8E8E4', ivory: '#FCEFEA', paper: '#FEF8F4', night: '#2E0C14', nightDeep: '#1E060C', olive: '#6E3A44', oliveDeep: '#522832', sage: '#B8909C', rose: '#E8B4B8', ink: '#2A0E14', inkSoft: '#6E3844', charcoal: '#A87884' },
@@ -1178,5 +1178,47 @@
       window.scrollTo({ top: 0, behavior: reducedQuery.matches ? 'auto' : 'smooth' });
     });
   }
+
+  /* ══ 12 · THE CINEMA — graded lens, letterbox curtain ══════════ */
+  (function initCinema() {
+    if (reducedQuery.matches) return; // stills for reduced motion
+    var root = document.documentElement;
+    var body = document.body;
+    body.classList.add('cinema');
+
+    // the letterbox — two bars framing the reel, lifted on reveal
+    var barTop = document.createElement('div');
+    var barBottom = document.createElement('div');
+    barTop.className = 'cinema-bar cinema-bar--top';
+    barBottom.className = 'cinema-bar cinema-bar--bottom';
+    barTop.setAttribute('aria-hidden', 'true');
+    barBottom.setAttribute('aria-hidden', 'true');
+    body.appendChild(barTop);
+    body.appendChild(barBottom);
+
+    var opened = false;
+    function openCinema() {
+      if (opened) return;
+      opened = true;
+      // one frame so the bars are painted before the lift begins
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          root.classList.add('cinema-open');
+          window.setTimeout(function () {
+            barTop.remove();
+            barBottom.remove();
+          }, 2400);
+        });
+      });
+    }
+
+    if (body.classList.contains('intro-done')) {
+      window.setTimeout(openCinema, 350);
+    } else {
+      document.addEventListener('heirloom:intro-complete', openCinema);
+      // safety net — if the intro event never fires, still open
+      window.setTimeout(openCinema, 9000);
+    }
+  })();
 
 })();
