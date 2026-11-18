@@ -1179,40 +1179,20 @@
     });
   }
 
-  /* ══ 12 · THE CINEMA — graded lens, letterbox curtain ══════════ */
+  /* ══ 12 · THE CINEMA — graded lens ═════════════════════════════ */
   (function initCinema() {
     if (reducedQuery.matches) return; // stills for reduced motion
     var root = document.documentElement;
-    var body = document.body;
-    body.classList.add('cinema');
-
-    // the letterbox — two bars framing the reel, lifted on reveal
-    var barTop = document.createElement('div');
-    var barBottom = document.createElement('div');
-    barTop.className = 'cinema-bar cinema-bar--top';
-    barBottom.className = 'cinema-bar cinema-bar--bottom';
-    barTop.setAttribute('aria-hidden', 'true');
-    barBottom.setAttribute('aria-hidden', 'true');
-    body.appendChild(barTop);
-    body.appendChild(barBottom);
+    document.body.classList.add('cinema');
 
     var opened = false;
     function openCinema() {
       if (opened) return;
       opened = true;
-      // one frame so the bars are painted before the lift begins
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          root.classList.add('cinema-open');
-          window.setTimeout(function () {
-            barTop.remove();
-            barBottom.remove();
-          }, 2400);
-        });
-      });
+      root.classList.add('cinema-open');
     }
 
-    if (body.classList.contains('intro-done')) {
+    if (document.body.classList.contains('intro-done')) {
       window.setTimeout(openCinema, 350);
     } else {
       document.addEventListener('heirloom:intro-complete', openCinema);

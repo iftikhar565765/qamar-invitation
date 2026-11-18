@@ -2,8 +2,7 @@
    QAMAR · cinema.css — the moonlit court, filmed
    ---------------------------------------------------------------
    The invitation staged like a night epic: a graded lens
-   (vignette + a breath of film grain), theatre letterbox bars
-   that lift as the envelope opens, moonlight pooling on the
+   (vignette + a breath of film grain), moonlight pooling on the
    dome, a slow Ken Burns drift on the moon card, rose-gold
    blooms on the crescent and calligraphy, and a shooting star
    that crosses the night scenes once in a while. Everything is
@@ -48,34 +47,6 @@ body.cinema::after {
   100% { background-position: 0 0; }
 }
 
-/* ═══ THE CURTAIN — letterbox bars that lift with the reveal ════ */
-
-.cinema-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: clamp(40px, 6.4vh, 86px);
-  z-index: 96;
-  pointer-events: none;
-  transition: transform 1.7s cubic-bezier(.72, 0, .18, 1) .3s;
-  will-change: transform;
-}
-.cinema-bar--top {
-  top: 0;
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--champagne) 34%, transparent);
-  background: linear-gradient(0deg,
-    #05090F 0%, var(--night-deep) 78%,
-    color-mix(in srgb, var(--night-deep) 62%, transparent) 100%);
-}
-.cinema-bar--bottom {
-  bottom: 0;
-  box-shadow: 0 -1px 0 color-mix(in srgb, var(--champagne) 34%, transparent);
-  background: linear-gradient(180deg,
-    #05090F 0%, var(--night-deep) 78%,
-    color-mix(in srgb, var(--night-deep) 62%, transparent) 100%);
-}
-html.cinema-open .cinema-bar--top { transform: translateY(-102%); }
-html.cinema-open .cinema-bar--bottom { transform: translateY(102%); }
 
 /* ═══ SCENE LIGHTING — moonlight and lantern pools per scene ════ */
 
@@ -366,7 +337,6 @@ html.cinema-open .moon-card__names .moon-card__name:nth-child(3) {
 
 @media (prefers-reduced-motion: reduce) {
   body.cinema::after { animation: none; }
-  .cinema-bar { transition: none; }
   html.cinema-open .moon-card,
   .qamar-sky__crescent,
   .qamar-sky__dome,
