@@ -31,7 +31,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&family=Marcellus&family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Caveat&family=Jost:wght@300;400;600&family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=DM+Serif+Display&family=Italiana&family=Karla&family=Lora&family=Montserrat:wght@400;600&family=Parisienne&family=Playfair+Display:wght@400;500&family=Prata&family=Rozha+One&family=Libre+Caslon+Text&family=Cardo&family=Spectral:wght@300;400&family=Crimson+Pro:wght@300;400&family=Shadows+Into+Light&family=Homemade+Apple&family=Nothing+You+Could+Do&family=DM+Sans:wght@400;600&family=Outfit:wght@300;400&family=Cedarville+Cursive&family=Alex+Brush&family=Allura&family=Tangerine:wght@400&family=Libre+Baskerville&family=Mrs+Saint+Delafield&family=Herr+Von+Muellerhoff&family=Syne:wght@500;700&family=Work+Sans:wght@300;400&family=Source+Sans+3:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;600&family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Syne:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -69,13 +69,13 @@
 
     <!-- star scatter and arabesque corners at the night's edge -->
     <span class="opening__corners" aria-hidden="true" data-element-key="opening-corners">
-      <img class="opening__corner opening__corner--tl" src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async">
-      <img class="opening__corner opening__corner--tr" src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async">
+      <img class="opening__corner opening__corner--tl" src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high">
+      <img class="opening__corner opening__corner--tr" src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high">
     </span>
 
     <!-- hanging fanous lanterns -->
     <span class="opening__lanterns" aria-hidden="true" data-element-key="opening-lanterns">
-      <img class="opening__lantern opening__lantern--l" src="assets/art/lantern-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async" data-drift="0.5">
+      <img class="opening__lantern opening__lantern--l" src="assets/art/lantern-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async" data-drift="0.5" fetchpriority="high">
       <img class="opening__lantern opening__lantern--r" src="assets/art/lantern-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async" data-drift="0.7">
     </span>
 
@@ -98,7 +98,7 @@
       <p class="opening__names script" data-content="couple.names" data-element-key="opening-names">Zoya &amp; Amaan</p>
 
       <div class="envelope-stage">
-        <img class="envelope-lace" src="assets/art/crescent-qamar.png" alt="" aria-hidden="true" data-element-key="envelope-lace" data-drift="0.4">
+        <img class="envelope-lace" src="assets/art/crescent-qamar.png" alt="" aria-hidden="true" data-element-key="envelope-lace" data-drift="0.4" loading="eager" decoding="async">
         <div class="envelope-shadow" aria-hidden="true" data-element-key="envelope-shadow"></div>
 
         <!-- The entire envelope is one accessible control -->
@@ -110,7 +110,7 @@
             <span class="envelope__letter-inner">
               <span class="envelope__letter-mono script" data-content="couple.initials">Z · A</span>
               <span class="envelope__letter-names" data-content="couple.names">Zoya &amp; Amaan</span>
-              <img class="envelope__letter-sprig" src="assets/art/divider-qamar.png" alt="" aria-hidden="true">
+              <img class="envelope__letter-sprig" src="assets/art/divider-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async">
               <span class="envelope__letter-date" data-content="wedding.numerals">12 · 12 · 2027</span>
             </span>
           </span>
@@ -133,7 +133,7 @@
           </span>
 
           <span class="envelope__seal-wrap" aria-hidden="true">
-            <img class="envelope__seal-img" src="assets/art/seal-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async">
+            <img class="envelope__seal-img" src="assets/art/seal-qamar.webp" alt="" aria-hidden="true" loading="eager" decoding="async">
             <span class="envelope__seal script" data-content="couple.initials" data-element-key="envelope-seal">Z · A</span>
           </span>
         </button>
@@ -189,7 +189,7 @@
             </h1>
 
             <span class="moon-card__rule reveal" aria-hidden="true">
-              <i></i><img src="assets/art/divider-qamar.png" alt="" aria-hidden="true"><i></i>
+              <i></i><img src="assets/art/divider-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async"><i></i>
             </span>
 
             <div class="moon-card__date reveal" role="group" aria-label="The wedding date">
@@ -214,7 +214,7 @@
             </p>
 
             <span class="moon-card__rule moon-card__rule--end reveal" aria-hidden="true">
-              <i></i><img src="assets/art/divider-qamar.png" alt="" aria-hidden="true"><i></i>
+              <i></i><img src="assets/art/divider-qamar.png" alt="" aria-hidden="true" loading="eager" decoding="async"><i></i>
             </span>
 
             <p class="moon-card__closing script reveal" data-content="content.invitationClosing">Your presence is our greatest blessing</p>
@@ -270,10 +270,10 @@
         <div class="scene-body scene-body--narrow">
           <p class="kicker kicker--center kicker--light reveal" data-content="content.ayatKicker">The Blessed Verse</p>
           <div class="ayat-plate reveal" data-element-key="ayat-plate">
-            <span class="ayat-plate__corner ayat-plate__corner--tl" aria-hidden="true"><img src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true"></span>
-            <span class="ayat-plate__corner ayat-plate__corner--tr" aria-hidden="true"><img src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true"></span>
-            <span class="ayat-plate__corner ayat-plate__corner--bl" aria-hidden="true"><img src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true"></span>
-            <span class="ayat-plate__corner ayat-plate__corner--br" aria-hidden="true"><img src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true"></span>
+            <span class="ayat-plate__corner ayat-plate__corner--tl" aria-hidden="true"><img src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
+            <span class="ayat-plate__corner ayat-plate__corner--tr" aria-hidden="true"><img src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
+            <span class="ayat-plate__corner ayat-plate__corner--bl" aria-hidden="true"><img src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
+            <span class="ayat-plate__corner ayat-plate__corner--br" aria-hidden="true"><img src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
             <p class="ayat-arabic" lang="ar" dir="rtl" data-content="content.ayatArabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
             <p class="ayat-translation" data-content="content.ayatTranslation">And one of His signs is that He created for you spouses from among yourselves so that you may find comfort in them. And He has placed between you compassion and mercy. Surely in this are signs for people who reflect.</p>
             <p class="ayat-reference label-caps">
@@ -314,7 +314,7 @@
           </div>
 
           <div class="std-seal" aria-hidden="true" data-element-key="std-seal">
-            <img class="seal__art" src="assets/art/seal-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img class="seal__art" src="assets/art/seal-qamar.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <span class="seal__initials script" data-content="couple.initials">Z · A</span>
           </div>
         </div>
@@ -332,7 +332,7 @@
         <ol class="events" data-stagger>
           <li class="event reveal" data-element-key="detail-mayun">
             <span class="event__node" aria-hidden="true">
-              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true">
+              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </span>
             <div class="event__card">
               <span class="event__index" lang="ar" aria-hidden="true">١</span>
@@ -344,7 +344,7 @@
 
           <li class="event reveal" data-element-key="detail-mehndi">
             <span class="event__node" aria-hidden="true">
-              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true">
+              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </span>
             <div class="event__card">
               <span class="event__index" lang="ar" aria-hidden="true">٢</span>
@@ -356,7 +356,7 @@
 
           <li class="event event--prime reveal" data-element-key="detail-nikah">
             <span class="event__node event__node--prime" aria-hidden="true">
-              <img class="event__star" src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true">
+              <img class="event__star" src="assets/art/shamsa-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </span>
             <div class="event__card event__card--prime">
               <span class="event__index" lang="ar" aria-hidden="true">٣</span>
@@ -368,7 +368,7 @@
 
           <li class="event reveal" data-element-key="detail-rukhsati">
             <span class="event__node" aria-hidden="true">
-              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true">
+              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </span>
             <div class="event__card">
               <span class="event__index" lang="ar" aria-hidden="true">٤</span>
@@ -380,7 +380,7 @@
 
           <li class="event reveal" data-element-key="detail-walima">
             <span class="event__node" aria-hidden="true">
-              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true">
+              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </span>
             <div class="event__card">
               <span class="event__index" lang="ar" aria-hidden="true">٥</span>
@@ -392,7 +392,7 @@
 
           <li class="event reveal" data-element-key="detail-reply">
             <span class="event__node" aria-hidden="true">
-              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true">
+              <img class="event__star" src="assets/art/divider-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </span>
             <div class="event__card">
               <span class="event__index" lang="ar" aria-hidden="true">٦</span>
@@ -631,7 +631,7 @@
           <p class="closing-dua-translation label-caps" data-content="content.closingDuaTranslation">May Allah bless you both, and shower His blessings upon you, and unite you both in goodness.</p>
           <p class="closing-message" data-content="content.closingMessage" data-element-key="closing-message">Thank you, from the depths of our hearts, for being part of our story. May our home be filled with sakinah, mawaddah and rahmah — tranquillity, love and mercy — and may every guest who walks through our door leave with a blessing. Your presence completes our celebration.</p>
           <div class="closing-seal" aria-hidden="true" data-element-key="closing-seal">
-            <img class="seal__art" src="assets/art/seal-qamar.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img class="seal__art" src="assets/art/seal-qamar.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <span class="seal__initials script" data-content="couple.initials">Z · A</span>
           </div>
           <div class="closing-actions">

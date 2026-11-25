@@ -39,12 +39,12 @@ body.cinema::after {
   animation: grain-shift 1.1s steps(5) infinite;
 }
 @keyframes grain-shift {
-  0%   { background-position: 0 0; }
-  20%  { background-position: -38px 22px; }
-  40%  { background-position: 24px -44px; }
-  60%  { background-position: -50px -14px; }
-  80%  { background-position: 32px 38px; }
-  100% { background-position: 0 0; }
+  0%   { transform: translate3d(0, 0, 0); }
+  20%  { transform: translate3d(-38px, 22px, 0); }
+  40%  { transform: translate3d(24px, -44px, 0); }
+  60%  { transform: translate3d(-50px, -14px, 0); }
+  80%  { transform: translate3d(32px, 38px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 
@@ -350,3 +350,7 @@ html.cinema-open .moon-card__names .moon-card__name:nth-child(3) {
   .opening__lantern,
   .venue-lantern { animation: none; }
 }
+
+/* the grain rides an oversized layer so it can drift on the compositor —
+   a background-position shift would repaint the whole reel every step */
+body.cinema::after { inset: -50%; will-change: transform; }
