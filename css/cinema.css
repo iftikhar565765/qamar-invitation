@@ -298,6 +298,23 @@ html.cinema-open .moon-card__names .moon-card__name:nth-child(3) {
   color: color-mix(in srgb, var(--parchment) 82%, transparent);
 }
 
+/* the palette court, the particulars and the attire note also sit on
+   midnight — ink that stayed hidden there turns to moonlight */
+.scene--palette .display {
+  color: color-mix(in srgb, var(--parchment) 92%, transparent);
+  text-shadow: 0 1px 16px rgba(0, 0, 0, .3);
+}
+.scene--palette .display .script { color: var(--gilding); }
+.scene--details .details-intro {
+  color: color-mix(in srgb, var(--parchment) 86%, transparent);
+}
+.scene--details .particular-value {
+  color: color-mix(in srgb, var(--parchment) 90%, transparent);
+}
+.scene--palette .dresscode-title {
+  color: color-mix(in srgb, var(--parchment) 92%, transparent);
+}
+
 /* small caps on paper deepen so captions carry */
 .moon-card__blessing,
 .moon-card__date-week,
