@@ -314,6 +314,9 @@ html.cinema-open .moon-card__names .moon-card__name:nth-child(3) {
 .scene--palette .dresscode-title {
   color: color-mix(in srgb, var(--parchment) 92%, transparent);
 }
+.scene--palette .dresscode-note {
+  color: color-mix(in srgb, var(--parchment) 80%, transparent);
+}
 
 /* small caps on paper deepen so captions carry */
 .moon-card__blessing,
